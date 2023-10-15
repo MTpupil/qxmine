@@ -4,5 +4,5 @@
 		"config": "*/1 * * * * https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/dyonline.js, tag=抖音在线, img-url=https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/douyin.png, enabled=true",
 		"addons": ""
 	}],
-	"description": "监控抖音在线/离线时间"
+	"description": "有关心怡姐姐的任务"
 }
