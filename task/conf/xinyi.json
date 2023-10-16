@@ -3,6 +3,11 @@
 	"task": [{
 		"config": "*/1 * * * * https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/dyonline.js, tag=抖音在线, img-url=https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/dy.png, enabled=true",
 		"addons": ""
-	}],
+	},
+		{
+		"config": "0 */8 * * * https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/xinyi-wifi.js, tag=抖音在线, img-url=https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/dy.png, enabled=true",
+		"addons": ""
+	}
+	],
 	"description": "有关心怡姐姐的任务"
 }
