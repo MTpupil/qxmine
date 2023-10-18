@@ -1,7 +1,7 @@
 {
 	"name": "心怡姐姐",
 	"task": [{
-		"config": "*/1 * * * * https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/dyonline.js, tag=抖音在线, img-url=https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/dy.png, enabled=true",
+		"config": "*/1 * * * * https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/dyonline.js, tag=抖音在线, img-url=https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/douyin.png, enabled=true",
 		"addons": ""
 	},
 		{
