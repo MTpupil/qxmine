@@ -8,10 +8,10 @@
     {
       "id": "wi-fi",
       "name": "wi-fi",
-      "keys": ["id"],
+      "keys": ["aaa"],
       "settings": [
         {
-          "id": "id",
+          "id": "aaa",
           "name": "卡id",
           "val": "",
           "type": "textarea",
@@ -23,7 +23,7 @@
       ],
       "author": "@木瞳",
       "repo": "",
-      "script": "https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/xinyi-wifi.js",
+      "script": "https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/boxjstext.js",
       "icons": [
         "https://s1.ax1x.com/2022/11/23/z8LIPO.jpg"
         ]
