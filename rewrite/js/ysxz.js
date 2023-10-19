@@ -9,7 +9,7 @@
 
 const SCRIPT_NAME='云上写作';
 
-const user=/^http时?:\/\/www\.yunshangxiezuo\.com\/api\/getAuthenticate_2/;
+const user=/^https?:\/\/www\.yunshangxiezuo\.com\/api\/getAuthenticate_2/;
 
 if(user.test($request.url)){
   let obj=JSON.parse($response.body).data;
