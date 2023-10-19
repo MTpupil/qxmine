@@ -15,5 +15,12 @@
     }
   },
   "apps": [
+    {
+        "id": "wi-fi",
+        "name": "wi-fi",
+        "author": "木瞳”，
+        ”script": "https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/xinyi-wifi.js",
+        
+    }
   ]
 }
