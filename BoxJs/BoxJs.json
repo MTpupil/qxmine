@@ -6,9 +6,9 @@
   "repo": "",
   "apps": [
     {
-      "id": "10000",
-      "name": "10000",
-      "keys": ["chavy_signheader_10000"],
+      "id": "wi-fi",
+      "name": "wi-fi",
+      "keys": ["id"],
       "settings": [
         {
           "id": "id",
@@ -24,7 +24,9 @@
       "author": "@木瞳",
       "repo": "",
       "script": "https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/xinyi-wifi.js",
-      "icons": "https://s1.ax1x.com/2022/11/23/z8LIPO.jpg"
+      "icons": [
+        "https://s1.ax1x.com/2022/11/23/z8LIPO.jpg"
+        ]
     }
   ]
 }
