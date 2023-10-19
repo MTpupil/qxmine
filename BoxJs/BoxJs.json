@@ -3,6 +3,7 @@
   "name": "木瞳boxes订阅",
   "auther": "木瞳",
   "icon": "https://s1.ax1x.com/2022/11/23/z8LIPO.jpg",
+  "repo": "",
   "onInstall": {
     "title": "安装确认",
     "message": "本订阅包含重写资源, 是否需要自动安装?",
@@ -19,6 +20,7 @@
         "id": "wi-fi",
         "name": "wi-fi",
         "author": "木瞳",
+        "repo": "",
         "script": "https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/xinyi-wifi.js",
         
     }
