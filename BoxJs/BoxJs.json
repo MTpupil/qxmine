@@ -8,6 +8,15 @@
         "id": "wi-fi",
         "name": "wi-fi",
         "author": "木瞳",
+        "settings": [
+            {
+                "id": "id",
+                "name": "卡id",
+                "value": "",
+                "type": "textarea",
+                
+            }
+        ],
         "script": "https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/xinyi-wifi.js",
     }
   ]
