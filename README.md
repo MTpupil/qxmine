@@ -2,7 +2,7 @@
 ---
 - [MTpupil（Quantumult X Repo）](#mtpupilquantumult-x-repo)
     - [简介](#简介)
-    - [code snippet](#code snippet)
+    - [code snippet](#code——snippet)
         - [quantumult x](#quantumult-x)
         - [boxjs](#boxjs)
 - [LICENSE](#license)
