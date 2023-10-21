@@ -2,6 +2,9 @@
  * 每十分钟检测一次大大线报库羊毛列表，如果有新增羊毛推送本地及通过bark推送。
  * 
  */
+if($prefs.valueForKey("list") == undefined){
+  $prefs.setValueForKey("" ,"list");
+}
 
 const barkUrl = "https://api.day.app/pSyNTWnmVtPgeUepwNdMFb";
 
