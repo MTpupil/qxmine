@@ -27,6 +27,30 @@
       "icons": [
         "https://s1.ax1x.com/2022/11/23/z8LIPO.jpg"
         ]
+    },
+    {
+      "id": "ddsign",
+      "name": "大大线报签到",
+      "keys": ["token"],
+      "settings": [
+        {
+          "id": "token",
+          "name": "Token",
+          "val": "",
+          "type": "textarea",
+          "placeholder": "",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "请输入url后面跟的token参数"
+        }
+      ],
+      "author": "@木瞳",
+      "repo": "",
+      "script": "https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/ddsign.js",
+      "icons": [
+        "https://s1.ax1x.com/2022/11/23/z8LIPO.jpg",
+        "https://s1.ax1x.com/2022/11/23/z8LIPO.jpg"
+        ]
     }
   ]
 }
