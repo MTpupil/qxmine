@@ -1,6 +1,6 @@
 # MTpupil（Quantumult X Repo）
 ---
-- [MTpupil（Quantumult X Repo）](#MTpupil（Quantumult X Repo）)
+- [MTpupil（Quantumult X Repo）](#mtpupilquantumult-x-repo)
     - [简介](#简介)
     - [code snippet](#code snippet)
         - [quantumult x](#quantumult-x)
