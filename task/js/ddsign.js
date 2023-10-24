@@ -3,7 +3,7 @@
  * 大大线报库每日自动签到
  *
  */
-const $ = new Env("design");
+const $ = new Env("ddsign");
 const token = $.getdata("dd_sign_token");
 
 const url = "https://ym2.dadawz.cn/typechoUserlog/addLog?params=%7B%22type%22%3A%22clock%22%7D&token=" + token;
