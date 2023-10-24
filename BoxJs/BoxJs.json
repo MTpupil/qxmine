@@ -6,35 +6,12 @@
   "repo": "",
   "apps": [
     {
-      "id": "wi-fi",
-      "name": "wi-fi",
-      "keys": ["aaa"],
-      "settings": [
-        {
-          "id": "aaa",
-          "name": "卡id",
-          "val": "",
-          "type": "textarea",
-          "placeholder": "",
-          "autoGrow": true,
-          "rows": 5,
-          "desc": "测试"
-        }
-      ],
-      "author": "@木瞳",
-      "repo": "",
-      "script": "https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/boxjstext.js",
-      "icons": [
-        "https://s1.ax1x.com/2022/11/23/z8LIPO.jpg"
-        ]
-    },
-    {
       "id": "ddsign",
       "name": "大大线报签到",
-      "keys": ["token"],
+      "keys": ["dd_sign_token"],
       "settings": [
         {
-          "id": "token",
+          "id": "dd_sign_token",
           "name": "Token",
           "val": "",
           "type": "textarea",
