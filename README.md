@@ -23,7 +23,7 @@
 
 > Http请求
   * 支持方法: get, post, put, delete, head, options, patch
-    ```javascript
+```javascript
     let option = {
         url: "http://www.example.com/", // URL，必须
         headers: { // 请求头，可选
@@ -45,7 +45,7 @@
         return response.body
     })
     ……
-    ```
+```
 
 > 持久化数据
 ```javascript
