@@ -23,22 +23,22 @@ $task.fetch(myRequest).then(response => {
     let data = JSON.parse(response.body);
     let msg = data.msg;
     if (msg == "操作成功"){
-      console.log("签到成功");
+      $.log("签到成功");
     }else if(msg == "请先登录哦"){
-      console.log(msg);
-      $notify("大大报签到", "", "Token失效，登录状态已退出");
+      $.log(msg);
+      $.msg("大大报签到", "", "Token失效，登录状态已退出");
     }else if(msg == "你已经签到过了哦"){
-      console.log(msg);
+      $.log(msg);
     }else{
-      console.log(msg);
-      $notify("大大报签到", "", "未知错误");
+      $.log(msg);
+      $.msg("大大报签到", "", "未知错误");
     }
     
     //$notify("Title", "Subtitle", response.body); // Success!
     $done();
 }, reason => {
     // reason.error
-    $notify("大大报签到", "", "运行异常，请手动重试"); // Error!
+    $.msg("大大报签到", "", "运行异常，请手动重试"); // Error!
     $done();
 });
 
