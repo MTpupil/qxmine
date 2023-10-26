@@ -49,11 +49,10 @@
 
 > 持久化数据
 ```javascript
-
-$.getdata(‘chavy’) // 读取持久化数据 (string格式)
-$.setdata(string, ‘chavy’) // 写入持久化数据 (string格式)
-$.getjson(‘chavy’, default_value<String, Object>) // 读取持久化数据 (object格式),当读取失败后返回默认值
-$.setjson(object, ‘chavy’) // 写入持久化数据 (object格式)
+    $.getdata(‘chavy’) // 读取持久化数据 (string格式)
+    $.setdata(string, ‘chavy’) // 写入持久化数据 (string格式)
+    $.getjson(‘chavy’, default_value<String, Object>) // 读取持久化数据 (object格式),当读取失败后返回默认值
+    $.setjson(object, ‘chavy’) // 写入持久化数据 (object格式)
 
 ```
 
