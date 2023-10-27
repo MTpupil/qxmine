@@ -32,8 +32,8 @@ if (url_button.test($request.url)) {
     $.setdata(from[1], "mtpupil_superTopics_from");
     $.setdata(s[1], "mtpupil_superTopics_s");
     $.setdata(c[1], "mtpupil_superTopics_c");
-    $.setdata(request_url[1], "mtpupil_superTopics_request_url");
-    $.setdata([gsid[1]], "mtpupil_superTopics_gsid");
+    $.setdata(decodeURI(request_url[1]), "mtpupil_superTopics_request_url");
+    $.setdata(gsid[1], "mtpupil_superTopics_gsid");
 
     $.msg("参数获取成功", "请及时禁用此脚本，参数失效后重新开启脚本获取");
     $done();
