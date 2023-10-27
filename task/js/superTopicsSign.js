@@ -51,7 +51,7 @@ async function doSign() {
         }
 
         if (signname == "已签到") {
-            let signmsg = signobj.button.msg;
+            let signmsg = signobj.msg;
             $.msg("🎉签到成功", "", signmsg);
         } else {
             let errmsg = signobj.errmsg;
