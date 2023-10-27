@@ -22,6 +22,10 @@
     {
       "name":"原石",
       "url":"https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/yuanshi.png"
+    },
+    {
+      "name":"OpenAi",
+      "url":"https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/openai.png"
     }
   ]
 }
