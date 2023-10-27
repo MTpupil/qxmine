@@ -3,7 +3,8 @@
  * author：木瞳
  * 
  * [MITM]
- * api.weibo.cn
+ * hostname = api.weibo.cn
+ * 
  */
 
 const $ = new Env("微博超话签到获取参数");
