@@ -5,6 +5,7 @@ if(userUrl.test($request.url)){
     const user = obj.data.users[0];
     user.is_svip = true;
     user.name = "木瞳科技"
+    user.svip_expire_time = 4999999999;
     
     
     let body = JSON.stringify(obj);
