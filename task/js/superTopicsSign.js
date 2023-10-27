@@ -42,21 +42,17 @@ async function doSign() {
     try {
         let signResponse = await $.http.get(sign);
         let signobj = JSON.parse(signResponse.body);
-        let signmsg;
+        let signname;
 
         if (signobj.button && signobj.button.name) {
-            signmsg = signobj.button.name;
+            signname = signobj.button.name;
         } else {
-            signmsg = ""; // 如果属性不存在，可以赋予一个默认值或者采取其他处理方式。
+            signname = ""; // 如果属性不存在，可以赋予一个默认值或者采取其他处理方式。
         }
 
-        if (signmsg != "") {
-            let panelResponse = await $.http.get(panel);
-            let panelobj = panelResponse.body;
-            let panel_regex = /今日第\d*名，经验值\+\d/;
-            let panelmsg = panelobj.match(panel_regex);
-            let result = signmsg + "\n" + panelmsg;
-            $.msg("🎉签到成功", "", result);
+        if (signname == "已签到") {
+            let signmsg = signobj.button.msg;
+            $.msg("🎉签到成功", "", signmsg);
         } else {
             let errmsg = signobj.errmsg;
             $.log(errmsg);
