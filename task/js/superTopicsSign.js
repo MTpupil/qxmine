@@ -57,10 +57,12 @@ let signResult = await $.http.get(sign).then(response => {
         let errmsg = obj.errmsg;
         $.log(errmsg);
         $.msg(errmsg);
+        $done();
     }
 }, callback => {
     $.log("未知错误");
     $.msg("签到失败", "", "🔔出现未知错误");
+    $done();
 });
 
 
