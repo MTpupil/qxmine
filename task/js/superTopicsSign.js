@@ -15,8 +15,13 @@ const c = $.getdata("mtpupil_superTopics_c");
 const request_url = $.getdata("mtpupil_superTopics_request_url");
 const gsid = $.getdata("mtpupil_superTopics_gsid");
 
-const isNotice = $.getdata("mtpupil_superTopics_notice")
+const isNotice = $.getdata("mtpupil_superTopics_notice");
 
+if (isNotice) {
+    $.msg("通知已开启");
+}else{
+    $.msg("通知已关闭");
+}
 
 //定义请求url
 const query = "from=" + froma + "&s=" + s + "&c=" + c + "&request_url=" + request_url + "&gsid=" + gsid;
@@ -58,7 +63,7 @@ async function doSign() {
         } else {
             let errmsg = signobj.errmsg;
             $.log(errmsg);
-            $.msg(errmsg);
+            $.msg("签到失败","","错误信息：" + errmsg);
         }
     } catch (error) {
         $.log(error);
