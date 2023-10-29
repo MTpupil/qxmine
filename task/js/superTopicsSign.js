@@ -44,14 +44,16 @@ async function doSign() {
         } else {
             signname = ""; // 如果属性不存在，可以赋予一个默认值或者采取其他处理方式。
         }
-
-        if (signname == "已签到" && isNotice) {
+        
+        if (signname === "已签到" && isNotice) {
             let signmsg = signobj.msg;
             $.msg("🎉签到成功", "", signmsg);
+        } else if (signname === "已签到" && !isNotice) {
+    
         } else {
             let errmsg = signobj.msg;
             $.log(errmsg);
-            $.msg("签到失败","","错误信息：" + errmsg);
+            $.msg("签到失败", "", "错误信息：" + errmsg);
         }
     } catch (error) {
         $.log(error);
