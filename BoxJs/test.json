@@ -6,54 +6,18 @@
     "repo": "",
     "apps": [
       {
-        "id": "superTopics",
+        "id": "Vtest",
         "name": "参数获取测试",
-        "keys": ["mtpupil_superTopics_from", "mtpupil_superTopics_s", "mtpupil_superTopics_c", "mtpupil_superTopics_request_url", "mtpupil_superTopics_gsid"],
+        "keys": ["mtpupil_test_v"],
         "settings": [
           {
-            "id": "mtpupil_superTopics_from",
+            "id": "mtpupil_test_v",
             "name": "测试自动增长和row",
             "val": "",
             "type": "textarea",
             "placeholder": "aaa",
             "autoGrow": true,
             "rows": 5,
-            "desc": "自动获取后请勿改动"
-          },{
-            "id": "mtpupil_superTopics_s",
-            "name": "s",
-            "val": "",
-            "type": "textarea",
-            "placeholder": "",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "自动获取后请勿改动"
-          },{
-            "id": "mtpupil_superTopics_c",
-            "name": "c",
-            "val": "",
-            "type": "textarea",
-            "placeholder": "",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "自动获取后请勿改动"
-          },{
-            "id": "mtpupil_superTopics_request_url",
-            "name": "request_url",
-            "val": "",
-            "type": "textarea",
-            "placeholder": "",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "自动获取后请勿改动"
-          },{
-            "id": "mtpupil_superTopics_gsid",
-            "name": "gsid",
-            "val": "",
-            "type": "textarea",
-            "placeholder": "",
-            "autoGrow": true,
-            "rows": 1,
             "desc": "自动获取后请勿改动"
           }
         ],
