@@ -45,7 +45,7 @@ async function doSign() {
             signname = ""; // 如果属性不存在，可以赋予一个默认值或者采取其他处理方式。
         }
         
-        if (signname === "已签到" && isNotice) {
+        /*if (signname === "已签到" && isNotice) {
             let signmsg = signobj.msg;
             $.msg("🎉签到成功", "", signmsg);
         } else if (signname === "已签到" && !isNotice) {
@@ -54,7 +54,20 @@ async function doSign() {
             let errmsg = signobj.msg;
             $.log(errmsg);
             $.msg("签到失败", "", "错误信息：" + errmsg);
+        }*/
+        
+        const isSuccess = signname === "已签到";
+        const title = isSuccess
+          ? isNotice
+            ? "🎉签到成功"
+            : ""
+          : "签到失败";
+        const desc = isSuccess ? signobj.msg : "错误信息：" + signobj.msg;
+
+        if (!isSuccess || isNotice || title.includes("失败")) {
+          $.msg(title, "", desc);
         }
+        
     } catch (error) {
         $.log(error);
         $.msg("签到失败", "", "🔔出现未知错误");
