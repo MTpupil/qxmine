@@ -5,23 +5,18 @@
  * 此脚本需要boxjs支持，首先配合自动获取参数脚本，按照提示获取一次参数，弹出提示参数获取成功后再使用此脚本。
  */
 
-
 const $ = new Env("微博超话自动签到");
 
-//从boxjs获取参数
+//获取参数
 const froma = $.getdata("mtpupil_superTopics_from");
 const s = $.getdata("mtpupil_superTopics_s");
 const c = $.getdata("mtpupil_superTopics_c");
 const request_url = $.getdata("mtpupil_superTopics_request_url");
 const gsid = $.getdata("mtpupil_superTopics_gsid");
 
-const isNotice = $.getdata("mtpupil_superTopics_notice");
+//获取通知开关
+const isNotice = JSON.parse($.getdata("mtpupil_superTopics_notice"));
 
-if (isNotice) {
-    $.msg("通知已开启");
-}else{
-    $.msg("通知已关闭");
-}
 
 //定义请求url
 const query = "from=" + froma + "&s=" + s + "&c=" + c + "&request_url=" + request_url + "&gsid=" + gsid;
@@ -34,13 +29,6 @@ let sign = {
     url: `${sign_url}`,
     headers: {}
 };
-
-//签到信息
-let panel = {
-    url: `${panel_url}`,
-    headers: {}
-};
-
 
 //执行请求
 doSign();
