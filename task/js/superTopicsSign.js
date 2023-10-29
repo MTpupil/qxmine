@@ -15,6 +15,8 @@ const c = $.getdata("mtpupil_superTopics_c");
 const request_url = $.getdata("mtpupil_superTopics_request_url");
 const gsid = $.getdata("mtpupil_superTopics_gsid");
 
+const isNotice = $.getdata("mtpupil_superTopics_notice")
+
 
 //定义请求url
 const query = "from=" + froma + "&s=" + s + "&c=" + c + "&request_url=" + request_url + "&gsid=" + gsid;
@@ -50,7 +52,7 @@ async function doSign() {
             signname = ""; // 如果属性不存在，可以赋予一个默认值或者采取其他处理方式。
         }
 
-        if (signname == "已签到") {
+        if (signname == "已签到" && isNotice) {
             let signmsg = signobj.msg;
             $.msg("🎉签到成功", "", signmsg);
         } else {
