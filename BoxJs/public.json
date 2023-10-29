@@ -10,52 +10,13 @@
         "name": "微博超话签到",
         "keys": ["mtpupil_superTopics_from", "mtpupil_superTopics_s", "mtpupil_superTopics_c", "mtpupil_superTopics_request_url", "mtpupil_superTopics_gsid"],
         "settings": [
-          {
-            "id": "mtpupil_superTopics_from",
-            "name": "from",
-            "val": "",
-            "type": "textarea",
-            "placeholder": "",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "自动获取后请勿改动"
-          },{
-            "id": "mtpupil_superTopics_s",
-            "name": "s",
-            "val": "",
-            "type": "textarea",
-            "placeholder": "",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "自动获取后请勿改动"
-          },{
-            "id": "mtpupil_superTopics_c",
-            "name": "c",
-            "val": "",
-            "type": "textarea",
-            "placeholder": "",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "自动获取后请勿改动"
-          },{
-            "id": "mtpupil_superTopics_request_url",
-            "name": "request_url",
-            "val": "",
-            "type": "textarea",
-            "placeholder": "",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "自动获取后请勿改动"
-          },{
-            "id": "mtpupil_superTopics_gsid",
-            "name": "gsid",
-            "val": "",
-            "type": "textarea",
-            "placeholder": "",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "自动获取后请勿改动"
-          }
+             {
+             "id": "mtpupil_superTopics_notice",
+             "name": "通知开关",
+             "val": true,
+             "type": "boolean",
+             "desc": "关闭后可免打扰（参数失效信息不影响）"
+             }
         ],
         "author": "木瞳",
         "repo": "",
