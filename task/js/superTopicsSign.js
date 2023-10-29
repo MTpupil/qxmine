@@ -49,7 +49,7 @@ async function doSign() {
             let signmsg = signobj.msg;
             $.msg("🎉签到成功", "", signmsg);
         } else {
-            let errmsg = signobj.errmsg;
+            let errmsg = signobj.msg;
             $.log(errmsg);
             $.msg("签到失败","","错误信息：" + errmsg);
         }
