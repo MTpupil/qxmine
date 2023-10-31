@@ -41,4 +41,4 @@ if(plus.test($request.url)) {
     obj.data = data;
     let body=JSON.stringify(obj);
 }
-$done()
+$done({body})
