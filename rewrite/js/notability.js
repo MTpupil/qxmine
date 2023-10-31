@@ -38,6 +38,6 @@ if(plus.test($request.url)) {
     }
 };
     let body = JSON.stringify(obj);
+    $done({body})
 }
 
-$done({body})
