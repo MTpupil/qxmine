@@ -11,7 +11,11 @@
 
 const SCRIPT_NAME = 'Notability';
 
-let data = {
+const plus = /^https?:\/\/notability\.com\/(global|subscriptions)/;
+
+if(plus.test($request.url)) {
+    let obj = JSON.parse($resopnse.body);
+    obj.data = {
     processAppleReceipt: {
       error: 0,
       subscription: {
@@ -33,12 +37,7 @@ let data = {
       __typename: "SubscriptionResult"
     }
 };
-
-const plus = /^https?:\/\/notability\.com\/(global|subscriptions)/;
-
-if(plus.test($request.url)) {
-    let obj = JSON.parse($resopnse.body);
-    obj.data = data;
-    let body=JSON.stringify(obj);
+    let obj = JSON.stringify(obj);
 }
-$done({body})
+
+$done({obj})
