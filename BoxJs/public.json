@@ -8,7 +8,7 @@
       {
         "id": "superTopics",
         "name": "微博超话签到",
-        "keys": ["mtpupil_superTopics_from", "mtpupil_superTopics_s", "mtpupil_superTopics_c", "mtpupil_superTopics_request_url", "mtpupil_superTopics_gsid"],
+        "keys": ["mtpupil_superTopics_from", "mtpupil_superTopics_s", "mtpupil_superTopics_c", "mtpupil_superTopics_request_url", "mtpupil_superTopics_gsid", "mtpupil_superTopics_notice"],
         "settings": [
              {
              "id": "mtpupil_superTopics_notice",
