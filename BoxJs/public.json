@@ -25,7 +25,7 @@
             "desc": "批量模式可以同时签到多个超话，使用方法请移步公众号：木瞳科技Pro"
             },
             {
-            id": "mtpupil_superTopics_pageIds",
+            "id": "mtpupil_superTopics_pageIds",
             "name": "批量模式下需要签到的超话",
             "val": "",
             "type": "textarea",
