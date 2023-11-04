@@ -8,15 +8,32 @@
       {
         "id": "superTopics",
         "name": "微博超话签到",
-        "keys": ["mtpupil_superTopics_from", "mtpupil_superTopics_s", "mtpupil_superTopics_c", "mtpupil_superTopics_request_url", "mtpupil_superTopics_gsid", "mtpupil_superTopics_notice"],
+        "keys": ["mtpupil_superTopics_from", "mtpupil_superTopics_s", "mtpupil_superTopics_c", "mtpupil_superTopics_request_url", "mtpupil_superTopics_gsid", "mtpupil_superTopics_notice", "mtpupil_superTopics_bat", "mtpupil_superTopics_pageIds"],
         "settings": [
-             {
-             "id": "mtpupil_superTopics_notice",
-             "name": "通知开关",
-             "val": true,
-             "type": "boolean",
-             "desc": "关闭后可免打扰（参数失效信息不影响）"
-             }
+            {
+            "id": "mtpupil_superTopics_notice",
+            "name": "签到通知",
+            "val": true,
+            "type": "boolean",
+            "desc": "关闭后可免打扰（参数失效、签到失败等情况不受影响，仅签到成功的时候不通知）"
+            },
+            {
+            "id": "mtpupil_superTopics_bat",
+            "name": "批量模式",
+            "val": true,
+            "type": "boolean",
+            "desc": "批量模式可以同时签到多个超话，使用方法请移步公众号：木瞳科技Pro"
+            },
+            {
+            id": "mtpupil_superTopics_pageIds",
+            "name": "批量模式下需要签到的超话",
+            "val": "",
+            "type": "textarea",
+            "placeholder": "",
+            "autoGrow": true,
+            "rows": 5,
+            "desc": "每行代表一个超话，不需要签到的超话直接整行删除即可"
+            }
         ],
         "author": "木瞳",
         "repo": "",
