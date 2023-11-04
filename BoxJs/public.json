@@ -26,13 +26,13 @@
             },
             {
             "id": "mtpupil_superTopics_pageIds",
-            "name": "批量模式下需要签到的超话",
+            "name": "批量模式签到的超话，每行代表一个，不需要签到的直接整行删除即可",
             "val": "",
             "type": "textarea",
             "placeholder": "",
             "autoGrow": true,
             "rows": 5,
-            "desc": "每行代表一个超话，不需要签到的超话直接整行删除即可"
+            "desc": ""
             }
         ],
         "author": "木瞳",
