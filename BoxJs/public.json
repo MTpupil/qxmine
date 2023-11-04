@@ -26,7 +26,7 @@
             },
             {
             "id": "mtpupil_superTopics_pageIds",
-            "name": "批量模式签到的超话\n每行代表一个\n不签到的直接整行删除",
+            "name": "批量模式签到的超话\n每行代表一个\n格式：超话名字,参数\n不签到的整行删除即可",
             "val": "",
             "type": "textarea",
             "placeholder": "",
