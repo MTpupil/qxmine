@@ -70,7 +70,7 @@ async function main(isBat, request_url, pageIds, froma, s, c, gsid, isNotice) {
 
     const nameDescString = nameDescArray.map(item => `${item.name}，${item.desc}`).join('\n');
     
-    if(failureCount > 0 || isNotice){
+    if(failureCount > 0 || (isNotice && failureCount == 0)){
     
     $.msg("执行成功", outputString, "长按查看全部信息，轻点跳转微博\n\n" + nameDescString, "sinaweibo://");
     }
