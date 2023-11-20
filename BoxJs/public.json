@@ -46,15 +46,8 @@
       {
         "id": "wxstep",
         "name": "微信运动",
-        "keys": ["mtpupil_superTopics_from", "mtpupil_superTopics_s", "mtpupil_superTopics_c", "mtpupil_superTopics_request_url", "mtpupil_superTopics_gsid", "mtpupil_superTopics_notice", "mtpupil_superTopics_bat", "mtpupil_superTopics_pageIds"],
+        "keys": ["mtpupil_wxstep_user", "mtpupil_wxstep_pwd", "mtpupil_wxstep_step"],
         "settings": [
-            {
-            "id": "mtpupil_wxstep_notice",
-            "name": "刷步通知",
-            "val": true,
-            "type": "boolean",
-            "desc": "关闭后可免打扰（刷步成功无提醒，失败后通知用户）"
-            },
             {
             "id": "mtpupil_wxstep_user",
             "name": "用户名",
