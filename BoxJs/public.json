@@ -83,8 +83,8 @@
         "repo": "",
         "script": "https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/wxstep.js",
         "icons": [
-          "https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/weibo.png",
-          "https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/weibo.png"
+          "https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/step.png",
+          "https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/step.png"
           ]
       }
     ]
