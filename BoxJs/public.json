@@ -42,6 +42,57 @@
           "https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/weibo.png",
           "https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/weibo.png"
           ]
+      },
+      {
+        "id": "wxstep",
+        "name": "微信运动",
+        "keys": ["mtpupil_superTopics_from", "mtpupil_superTopics_s", "mtpupil_superTopics_c", "mtpupil_superTopics_request_url", "mtpupil_superTopics_gsid", "mtpupil_superTopics_notice", "mtpupil_superTopics_bat", "mtpupil_superTopics_pageIds"],
+        "settings": [
+            {
+            "id": "mtpupil_wxstep_notice",
+            "name": "刷步通知",
+            "val": true,
+            "type": "boolean",
+            "desc": "关闭后可免打扰（参数失效、签到失败等情况不受影响，仅签到成功的时候不通知）"
+            },
+            {
+            "id": "mtpupil_wxstep_user",
+            "name": "用户名",
+            "val": "",
+            "type": "textarea",
+            "placeholder": "小米运动用户名",
+            "autoGrow": true,
+            "rows": 1,
+            "desc": "手机号或者邮箱"
+            },
+            {
+            "id": "mtpupil_wxstep_pwd",
+            "name": "密码",
+            "val": "",
+            "type": "textarea",
+            "placeholder": "小米运动密码",
+            "autoGrow": true,
+            "rows": 1,
+            "desc": ""
+            },
+            {
+            "id": "mtpupil_wxstep_step",
+            "name": "步数",
+            "val": "",
+            "type": "textarea",
+            "placeholder": "要刷的步数",
+            "autoGrow": true,
+            "rows": 1,
+            "desc": "固定步数直接输入，随机步数要在两个步数中间用@连接，例：100@200"
+            }
+        ],
+        "author": "木瞳",
+        "repo": "",
+        "script": "https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/superTopicsSign.js",
+        "icons": [
+          "https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/weibo.png",
+          "https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/weibo.png"
+          ]
       }
     ]
   }
