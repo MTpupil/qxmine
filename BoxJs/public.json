@@ -77,14 +77,20 @@
             "autoGrow": true,
             "rows": 1,
             "desc": "固定步数直接输入，随机步数要在两个步数中间用@连接，例：100@200"
-            }
+            },
+            {
+        "id": "genshinSign",
+        "name": "米游社原神签到",
+        "keys": ["mtpupil_genshinSign_uid", "mtpupil_genshinSign_cookie", "mtpupil_genshinSign_x_rpc_device_fp"],
+        "settings": [
+            
         ],
         "author": "木瞳",
         "repo": "",
-        "script": "https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/wxstep.js",
+        "script": "",
         "icons": [
-          "https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/step.png",
-          "https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/step.png"
+          "",
+          ""
           ]
       }
     ]
