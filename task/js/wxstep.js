@@ -14,13 +14,9 @@ step = formatStep(step)
 let option = {
     url: "https://apis.jxcxin.cn/api/mi",
     headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
     },
-    body: `{
-        "user": "${user}",
-        "password": "${pwd}",
-        "step": "${step}"
-    }`,
+    body: `user=${user}&password=${pwd}&step=${step}`,
 };
 
 
