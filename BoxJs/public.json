@@ -108,8 +108,6 @@
         "mtpupil_genshinSign_x_rpc_device_fp",
         "mtpupil_genshinSign_cookie"
       ],
-      "settings": [
-      ],
       "author": "木瞳",
       "repo": "",
       "script": "https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/superTopicsSign.js",
