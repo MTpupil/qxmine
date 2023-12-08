@@ -102,7 +102,7 @@
     },
     {
       "id": "genshinSign",
-      "name": "米游社原神签到",
+      "name": "米游社原神签到（开发中）",
       "keys": [
         "mtpupil_genshinSign_uid",
         "mtpupil_genshinSign_x_rpc_device_fp",
