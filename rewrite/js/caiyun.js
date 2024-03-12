@@ -11,7 +11,8 @@
 
 const SCRIPT_NAME = '彩云天气';
 const user = /https:\/\/biz\.cyapi\.cn\/v2\/user/;
-const vip = /https:\/\/biz.\cyapi\.cn\/p\/v1\/vip_info/;
+const vip = /https:\/\/biz\.cyapi\.cn\/p\/v1\/vip_info/;
+const ai = /https:\/\/starplucker\.cyapi\.cn\/v3\/ai\/weather\/quotas/;
 
 if(user.test($request.url)){
 
@@ -52,6 +53,18 @@ obj["svip"] = {
     "expires_time" : "4102329600",
     "is_auto_renewal" : true
   };
+
+let body = JSON.stringify(obj);
+$done({body})
+}
+
+if(ai.test($request.url)){
+
+let obj=JSON.parse($response.body);
+
+obj["remain"] = 5201314;
+obj["free_remain"] = 5201314;
+obj["free_quota"] = 5201314;
 
 let body = JSON.stringify(obj);
 $done({body})
