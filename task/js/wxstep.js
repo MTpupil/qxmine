@@ -12,7 +12,6 @@ let step = $.getdata("mtpupil_wxstep_step");
 step = formatStep(step)
 
 let option = {
-    //https://api.leafone.cn/api/misport?user=mtpupil@163.com&password=19980731ycy&step=8078
     url: "https://api.leafone.cn/api/misport",
     headers: {
         "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
