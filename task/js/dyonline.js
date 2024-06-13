@@ -4,6 +4,8 @@
  * 
  */
 
+const isBark = 0;
+
 //bark url
 const barkUrl = "https://api.day.app/pSyNTWnmVtPgeUepwNdMFb";
 
@@ -82,7 +84,8 @@ let data = JSON.parse(response.body).data[0];
     if ($prefs.valueForKey("isOnline") != isOnline){
       if (isOnline == "online"){
          $notify("状态变更通知", name, "✅在线中");
-         bark(barkUrl,{"title":"状态变更通知"},{"body":"✅在线中"},{"group":"姐姐抖音在线"},{"icon":"https://gd-hbimg.huaban.com/2938936cb736cac8a3addc1a83c8f5817435927412458-BZQHve_fw658"});
+         if (isBark){
+         bark(barkUrl,{"title":"状态变更通知"},{"body":"✅在线中"},{"group":"姐姐抖音在线"},{"icon":"https://gd-hbimg.huaban.com/2938936cb736cac8a3addc1a83c8f5817435927412458-BZQHve_fw658"});}
          console.log("✅在线中");
          
          $prefs.setValueForKey(onlineTime,"onlineTime")
@@ -106,7 +109,8 @@ let data = JSON.parse(response.body).data[0];
          }
          
          $notify("状态变更通知", name, "❌已离线，本次在线时长:" + formattedTime);
-         bark(barkUrl,{"title":"状态变更通知"},{"body":"❌已离线，本次在线时长:" + formattedTime},{"group":"姐姐抖音在线"},{"icon":"https://gd-hbimg.huaban.com/2938936cb736cac8a3addc1a83c8f5817435927412458-BZQHve_fw658"});
+         if (!isBark){
+         bark(barkUrl,{"title":"状态变更通知"},{"body":"❌已离线，本次在线时长:" + formattedTime},{"group":"姐姐抖音在线"},{"icon":"https://gd-hbimg.huaban.com/2938936cb736cac8a3addc1a83c8f5817435927412458-BZQHve_fw658"});}
          console.log("❌已离线，本次在线时长:" + formattedTime);
       }
       $prefs.setValueForKey(isOnline,"isOnline");
