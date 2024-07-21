@@ -120,12 +120,12 @@
       "id": "10010",
       "name": "联通流量",
       "keys": [
-        "mtpupil_10010_phoneNmuber",
-        "mtpupil_10010_cookie"
+        "mtpupil_lt_phoneNmuber",
+        "mtpupil_lt_cookie"
       ],
       "settings": [
         {
-          "id": "mtpupil_10010_phoneNmuber",
+          "id": "mtpupil_lt_phoneNmuber",
           "name": "手机号",
           "val": "",
           "type": "textarea",
@@ -135,7 +135,7 @@
           "desc": "联通手机号"
         },
         {
-          "id": "mtpupil_10010_cookie",
+          "id": "mtpupil_lt_cookie",
           "name": "cookie",
           "val": "",
           "type": "textarea",
