@@ -120,12 +120,12 @@
       "id": "10010",
       "name": "联通流量",
       "keys": [
-        "mtpupil_lt_phoneNmuber",
+        "mtpupil_lt_phoneNumber",
         "mtpupil_lt_cookie"
       ],
       "settings": [
         {
-          "id": "mtpupil_lt_phoneNmuber",
+          "id": "mtpupil_lt_phoneNumber",
           "name": "手机号",
           "val": "",
           "type": "textarea",
