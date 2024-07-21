@@ -115,6 +115,43 @@
         "https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/step.png",
         "https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/step.png"
       ]
+    },
+    {
+      "id": "10010",
+      "name": "联通流量",
+      "keys": [
+        "mtpupil_10010_phoneNmuber",
+        "mtpupil_10010_cookie"
+      ],
+      "settings": [
+        {
+          "id": "mtpupil_10010_phoneNmuber",
+          "name": "手机号",
+          "val": "",
+          "type": "textarea",
+          "placeholder": "联通手机号",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "联通手机号"
+        },
+        {
+          "id": "mtpupil_10010_cookie",
+          "name": "cookie",
+          "val": "",
+          "type": "textarea",
+          "placeholder": "联通cookie",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": ""
+        }
+      ],
+      "author": "木瞳",
+      "repo": "",
+      "script": "https://raw.githubusercontent.com/MTpupil/qxmine/master/task/js/superTopicsSign.js",
+      "icons": [
+        "https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/step.png",
+        "https://raw.githubusercontent.com/MTpupil/qxmine/master/icon/step.png"
+      ]
     }
   ]
 }
