@@ -6,19 +6,32 @@
   "repo": "",
   "apps": [
     {
-      "id": "ddsign",
-      "name": "大大线报签到",
-      "keys": ["dd_sign_token"],
+      "id": "gdlltz",
+      "name": "广电流量通知",
+      "keys": [
+        "mtpupil_gdlltz_access",
+        "mtpupil.gdlltz_updata"
+      ],
       "settings": [
         {
-          "id": "dd_sign_token",
-          "name": "Token",
+          "id": "mtpupil_gdlltz_access",
+          "name": "Access",
           "val": "",
           "type": "textarea",
           "placeholder": "",
           "autoGrow": true,
-          "rows": 1,
-          "desc": "请输入url后面跟的token参数"
+          "rows": 2,
+          "desc": "请输入Access"
+        },
+        {
+          "id": "mtpupil_gdlltz_updata",
+          "name": "data",
+          "val": "",
+          "type": "textarea",
+          "placeholder": "",
+          "autoGrow": true,
+          "rows": 5,
+          "desc": "请输入data"
         }
       ],
       "author": "@木瞳",
