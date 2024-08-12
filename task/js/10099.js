@@ -45,7 +45,7 @@ $task.fetch(myRequest).then(response => {
         total = total / gb;
         let pct = (used / total) * 100;
         let detailsString = details.join("\n");
-        $.msg("广电流量通知", "用量：" + pct.toFixed(2) + "%", "已使用：" + used.toFixed(2) + " GB\n总流量：" + total.toFixed(2) + " GB\n\n构成：\n" + detailsString);
+        $.msg("广电流量通知", "已使用：" + used + " GB（" + pct.toFixed(2) + "%）", "总量：" + total.toFixed(2) + " GB\n剩余：" + (total - used).toFixed(2) + " GB\n\n构成：\n" + detailsString);
         $done();
     } else {
         $.msg("查询失败", "", "建议检查登录状态");
