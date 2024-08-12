@@ -1,4 +1,3 @@
-
 /**
  * 广电流量每日通知
  *
@@ -8,7 +7,12 @@ const access = $.getdata("mtpupil_gdlltz_access");
 const updata = $.getdata("mtpupil_gdlltz_updata");
 let total = 0;
 let details = [];
-let gb = 1024*1024
+let gb = 1024*1024;
+
+function formatNumber(num) {
+    let fixedNum = num.toFixed(2);
+    return Number(fixedNum);
+}
 
 const url = "https://app.10099.com.cn/contact-web/api/busi/qryUserRes";
 const method = "POST";
@@ -40,12 +44,12 @@ $task.fetch(myRequest).then(response => {
             let balance = parseFloat(resList[i].balance);
 
             total += highFee;
-            details.push(name + ": " + (balance / gb).toFixed(2) + " GB / " + (highFee / gb).toFixed(2) + " GB(" + ((balance / highFee)*100).toFixed(2) + "%)");
+            details.push(name + ": " + formatNumber(balance / gb) + " GB / " + formatNumber(highFee / gb) + " GB(" + formatNumber((balance / highFee)*100) + "%)");
         }
         total = total / gb;
         let pct = (used / total) * 100;
         let detailsString = details.join("\n");
-        $.msg("流量通知", "已使用：" + used.toFixed(2) + " GB（" + pct.toFixed(2) + "%）", "总量：" + total.toFixed(2) + " GB\n剩余：" + (total - used).toFixed(2) + " GB\n\n构成：\n" + detailsString);
+        $.msg("流量通知", "已使用：" + formatNumber(used) + " GB（" + formatNumber(pct) + "%）", "总量：" + formatNumber(total) + " GB\n剩余：" + formatNumber(total - used) + " GB\n\n构成：\n" + detailsString);
         $done();
     } else {
         $.msg("查询失败", "", "建议检查登录状态");
