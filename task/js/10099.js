@@ -44,7 +44,7 @@ $task.fetch(myRequest).then(response => {
             let balance = parseFloat(resList[i].balance);
 
             total += highFee;
-            details.push(name + ": " + formatNumber(balance / gb) + " GB / " + formatNumber(highFee / gb) + " GB(" + formatNumber((balance / highFee)*100) + "%)");
+            details.push(name + ": " + formatNumber(balance / gb) + " GB / " + formatNumber(highFee / gb) + " GB (" + formatNumber((balance / highFee)*100) + "%)");
         }
         total = total / gb;
         let pct = (used / total) * 100;
