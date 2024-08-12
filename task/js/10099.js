@@ -3,7 +3,7 @@
  * 广电流量每日通知
  *
  */
-const $ = new Env("广电流量通知");
+const $ = new Env("流量通知");
 const access = $.getdata("mtpupil_gdlltz_access");
 const updata = $.getdata("mtpupil_gdlltz_updata");
 let total = 0;
@@ -45,7 +45,7 @@ $task.fetch(myRequest).then(response => {
         total = total / gb;
         let pct = (used / total) * 100;
         let detailsString = details.join("\n");
-        $.msg("广电流量通知", "已使用：" + used.toFixed(2) + " GB（" + pct.toFixed(2) + "%）", "总量：" + total.toFixed(2) + " GB\n剩余：" + (total - used).toFixed(2) + " GB\n\n构成：\n" + detailsString);
+        $.msg("流量通知", "已使用：" + used.toFixed(2) + " GB（" + pct.toFixed(2) + "%）", "总量：" + total.toFixed(2) + " GB\n剩余：" + (total - used).toFixed(2) + " GB\n\n构成：\n" + detailsString);
         $done();
     } else {
         $.msg("查询失败", "", "建议检查登录状态");
@@ -55,7 +55,7 @@ $task.fetch(myRequest).then(response => {
     $done();
 }, reason => {
     // reason.error
-    $.msg("广电流量通知", "", "运行异常，请检查"); // Error!
+    $.msg("流量通知", "", "运行异常，请检查"); // Error!
     $done();
 });
 
