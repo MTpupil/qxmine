@@ -50,27 +50,40 @@ $task.fetch(myRequest).then(response => {
         let pct = (used / total) * 100;
         let detailsString = details.join("\n");
         //可视化进度
-        var usagePic = "";
-        for(int i=0; i<10 - Math.floor(pct / 10); i++){
-            usage += "🌕"
-        }
-        var xiaoshu = pct - Math.floor(pct / 10) * 10;
-        if (xiaoshu >= 0){
-            usagePic += "🌕"
-        }else if(xiaoshu >= 1.25){
-            usagePic += "🌖"
-        }else if(xiaoshu >= 3.75){
-            usagePic += "🌗"
-        }else if(xiaoshu >= 6.25){
-            usagePic += "🌘"
-        }else if(xiaoshu >= 8.75){
-            usagePic += "🌑"
-        }
-        for(int i=0; i<Math.floor(pct / 10); i++){
-            usagePic += "🌑"
-        }
-        //结束
-        $.msg("流量通知", "已使用：" + formatNumber(used) + " GB（" + formatNumber(pct) + "%）", "总量：" + formatNumber(total) + " GB\n剩余：" + formatNumber(total - used) + " GB\n\n构成：\n" + detailsString + "\n直观剩余：\n" + usagePic + "(" + (100 - pic) + "%)");
+var usagePic = "";
+
+// 添加已使用的满月部分
+for (let i = 0; i < 10 - Math.floor(pct / 10); i++) {
+    usagePic += "🌕";
+}
+
+// 计算小数部分
+var xiaoshu = pct - Math.floor(pct / 10) * 10;
+
+// 根据小数部分选择适当的月相符号
+if (xiaoshu >= 8.75) {
+    usagePic += "🌑";
+} else if (xiaoshu >= 6.25) {
+    usagePic += "🌘";
+} else if (xiaoshu >= 3.75) {
+    usagePic += "🌗";
+} else if (xiaoshu >= 1.25) {
+    usagePic += "🌖";
+} else {
+    usagePic += "🌕";
+}
+
+// 添加剩余部分的新月符号
+for (let i = 0; i < Math.floor(pct / 10); i++) {
+    usagePic += "🌑";
+}
+
+// 结束并发送消息
+$.msg(
+    "流量通知", 
+    "已使用：" + formatNumber(used) + " GB（" + formatNumber(pct) + "%）", 
+    "总量：" + formatNumber(total) + " GB\n剩余：" + formatNumber(total - used) + " GB\n\n构成：\n" + detailsString + "\n直观剩余：\n" + usagePic + " (" + formatNumber(100 - pct) + "%)"
+);
         $done();
     } else {
         $.msg("查询失败", "", "建议检查登录状态");
