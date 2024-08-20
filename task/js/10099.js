@@ -49,7 +49,28 @@ $task.fetch(myRequest).then(response => {
         total = total / gb;
         let pct = (used / total) * 100;
         let detailsString = details.join("\n");
-        $.msg("流量通知", "已使用：" + formatNumber(used) + " GB（" + formatNumber(pct) + "%）", "总量：" + formatNumber(total) + " GB\n剩余：" + formatNumber(total - used) + " GB\n\n构成：\n" + detailsString);
+        //可视化进度
+        var usagePic = "";
+        for(int i=0; i<10 - Math.floor(pct / 10); i++){
+            usage += "🌕"
+        }
+        var xiaoshu = pct - Math.floor(pct / 10) * 10;
+        if (xiaoshu >= 0){
+            usagePic += "🌕"
+        }else if(xiaoshu >= 1.25){
+            usagePic += "🌖"
+        }else if(xiaoshu >= 3.75){
+            usagePic += "🌗"
+        }else if(xiaoshu >= 6.25){
+            usagePic += "🌘"
+        }else if(xiaoshu >= 8.75){
+            usagePic += "🌑"
+        }
+        for(int i=0; i<Math.floor(pct / 10); i++){
+            usagePic += "🌑"
+        }
+        //结束
+        $.msg("流量通知", "已使用：" + formatNumber(used) + " GB（" + formatNumber(pct) + "%）", "总量：" + formatNumber(total) + " GB\n剩余：" + formatNumber(total - used) + " GB\n\n构成：\n" + detailsString + "\n直观剩余：\n" + usagePic + "(" + (100 - pic) + "%)");
         $done();
     } else {
         $.msg("查询失败", "", "建议检查登录状态");
