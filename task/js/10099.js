@@ -52,8 +52,8 @@ $task.fetch(myRequest).then(response => {
         //可视化进度
 var usagePic = "";
 
-// 添加已使用的满月部分
-for (let i = 0; i < 10 - Math.floor(pct / 10); i++) {
+// 添加剩余的满月部分
+for (let i = 0; i < 9 - Math.floor(pct / 10); i++) {
     usagePic += "🌕";
 }
 
@@ -73,7 +73,7 @@ if (xiaoshu >= 8.75) {
     usagePic += "🌕";
 }
 
-// 添加剩余部分的新月符号
+// 添加已使用的新月符号
 for (let i = 0; i < Math.floor(pct / 10); i++) {
     usagePic += "🌑";
 }
