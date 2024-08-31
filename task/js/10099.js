@@ -42,6 +42,11 @@ $task.fetch(myRequest).then(response => {
             let name = resList[i].itemName;
             let highFee = parseFloat(resList[i].highFee);
             let balance = parseFloat(resList[i].balance);
+            // 判断是否是上月结转
+            if (name.includes("上月")) {
+                // 使用零宽断言直接提取内容
+                name = name.match(/(?<=【).*?(?=】)/)[0];
+            }
 
             total += highFee;
             details.push(name + ": " + formatNumber(balance / gb) + " GB / " + formatNumber(highFee / gb) + " GB (" + formatNumber((balance / highFee)*100) + "%)");
