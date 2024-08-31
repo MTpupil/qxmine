@@ -11,8 +11,8 @@ const url=/^https?:\/\/w\.5hzs\.com\/player\/index/;
 if(url.test($request.url)){
   let body = JSON.parse($response.body);
   let data = body.data
-  body.data.member_short_play.is_vip=true;
-  body.data.name="木瞳科技破解"
-  body.data.member.is_vip=true
+  data.member_short_play.is_vip=true;
+  data.name="木瞳科技破解"
+  data.member.is_vip=true
   $done({body:JSON.stringify(body)})
 }
