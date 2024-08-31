@@ -6,7 +6,6 @@
  * 
  * 
  */
-const $ = new Env("ssme");
 const url=/^https?:\/\/w\.5hzs\.com\/player\/index/;
 if(url.test($request.url)){
   let body = JSON.parse($response.body);
