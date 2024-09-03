@@ -87,7 +87,7 @@ for (let i = 0; i < Math.floor(pct / 10); i++) {
 $.msg(
     "流量通知", 
     "已使用：" + formatNumber(used) + " GB（" + formatNumber(pct) + "%）", 
-    "总量：" + formatNumber(total) + " GB\n剩余：" + formatNumber(total - used) + " GB\n" + usagePic + " (" + formatNumber(100 - pct) + "%)" + "\n\n详情：\n" + detailsString
+    "总量：" + formatNumber(total) + " GB\n剩余：" + formatNumber(total - used) + " GB\n" + usagePic + " (" + formatNumber(100 - pct) + "%)" + "\n" + detailsString
 );
         $done();
     } else {
