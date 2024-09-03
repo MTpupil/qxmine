@@ -46,6 +46,7 @@ $task.fetch(myRequest).then(response => {
             if (name.includes("上月")) {
                 // 使用零宽断言直接提取内容
                 name = name.match(/(?<=【).*?(?=】)/)[0];
+                name = name.replace(/上月/g, "");
             }
             
             if (name.includes("流量")) {
@@ -54,7 +55,7 @@ $task.fetch(myRequest).then(response => {
             }
 
             total += highFee;
-            details.push(name + ": " + formatNumber(balance / gb) + " GB / " + formatNumber(highFee / gb) + " GB (" + formatNumber((balance / highFee)*100) + "%)");
+            details.push(name + ": " + formatNumber(balance / gb) + " / " + formatNumber(highFee / gb) + " GB (" + formatNumber((balance / highFee)*100) + "%)");
         }
         total = total / gb;
         let pct = (used / total) * 100;
@@ -92,7 +93,7 @@ for (let i = 0; i < Math.floor(pct / 10); i++) {
 $.msg(
     "流量通知", 
     "已使用：" + formatNumber(used) + " GB（" + formatNumber(pct) + "%）", 
-    "总量：" + formatNumber(total) + " GB\n剩余：" + formatNumber(total - used) + " GB\n" + usagePic + " (" + formatNumber(100 - pct) + "%)" + "\n" + detailsString
+    "总量：" + formatNumber(total) + " GB\n剩余：" + formatNumber(total - used) + " GB\n" + usagePic + " (" + formatNumber(100 - pct) + "%)" + "\n\n" + detailsString
 );
         $done();
     } else {
