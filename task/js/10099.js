@@ -47,6 +47,11 @@ $task.fetch(myRequest).then(response => {
                 // 使用零宽断言直接提取内容
                 name = name.match(/(?<=【).*?(?=】)/)[0];
             }
+            
+            if (name.includes("流量")) {
+                // 去除流量二字
+                name = name.replace(/流量/g, "");
+            }
 
             total += highFee;
             details.push(name + ": " + formatNumber(balance / gb) + " GB / " + formatNumber(highFee / gb) + " GB (" + formatNumber((balance / highFee)*100) + "%)");
