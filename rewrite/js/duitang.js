@@ -28,6 +28,7 @@ obj.data["be_follow_count"]=999999;
 obj.data["ipaddr"]="木瞳科技Pro破解";
 obj.data["score"]=999999;
 obj.data["vip_remain"]=0;
+obj.data["id"]=5201314;
   let body=JSON.stringify(obj);
   $done({body})
 }
