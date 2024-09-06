@@ -82,8 +82,9 @@ user.name = "木瞳科技Pro"
 user.avatar = "https://s1.ax1x.com/2022/11/23/z8LIPO.jpg"
 
 vip.vip.expires_time = "17368392570"
+vip.vip.is_auto_renewal = true
 vip.svip.expires_time = "17368392570"
-vip.svip.is_auto_ren =true
+vip.svip.is_auto_renewal = true
 
 let body = JSON.stringify(obj);
 $done({body})
