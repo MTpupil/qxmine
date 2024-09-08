@@ -10,9 +10,9 @@
 const SCRIPT_NAME='堆糖';
 
 const duitang=/https?:\/\/(www|api)\.duitang\.com\/napi\/people\/me.*/;
-const naiyou=/ /;
+const naiyou=/^https?:\/\/nz-api\.duitang\.com\/account\/me.*/;
 
-if(user.test($request.url)){
+if(duitang.test($request.url)){
   let obj=JSON.parse($response.body);
   obj.data["username"]="木瞳科技Pro";
   obj.data["vip"]=true;
@@ -27,6 +27,14 @@ if(user.test($request.url)){
   obj.data["ipaddr"]="木瞳科技Pro破解";
   obj.data["score"]=999999;
   obj.data["vip_remain"]=0;
+  let body=JSON.stringify(obj);
+  $done({body})
+}
+
+if(naiyou.test($request.url)){
+  let obj=JSON.parse($response.body);
+  obj.data["nickname"]="木瞳科技Pro";
+  obj.data["vip"]=true;
   let body=JSON.stringify(obj);
   $done({body})
 }
