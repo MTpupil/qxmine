@@ -35,6 +35,7 @@ if(naiyou.test($request.url)){
   let obj=JSON.parse($response.body);
   obj.data["nickname"]="木瞳科技Pro";
   obj.data["vip"]=true;
+  obj.data["id"]=5201314;
   let body=JSON.stringify(obj);
   $done({body})
 }
