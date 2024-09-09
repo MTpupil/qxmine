@@ -1,4 +1,5 @@
-#微信分流
+# NAME: 微信分流
+# AUTHOR: mtpupil
 DOMAIN, apd-pcdnwxlogin.teg.tencent-cloud.net
 DOMAIN, btrace.qq.com
 DOMAIN, dl.direct.com
