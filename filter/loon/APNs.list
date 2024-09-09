@@ -1,4 +1,6 @@
-#苹果推送服务（APNs）或许可缓解推送缓慢或其他问题
+# 苹果推送服务（APNs）或许可缓解推送缓慢或其他问题
+# NAME: 苹果推送APNs
+# AUTHOR: mtpupil
 DOMAIN-SUFFIX, push.apple.com
 DOMAIN, identity.apple.com
 IP-CIDR, 17.249.0.0/16
