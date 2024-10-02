@@ -44,8 +44,9 @@ $task.fetch(myRequest).then(response => {
             let balance = parseFloat(resList[i].balance);
             // 判断是否是上月结转
             if (name.includes("上月")) {
-                // 使用零宽断言直接提取内容
-                name = name.match(/(?<=【).*?(?=】)/)[0];
+                // 使用零宽断言直接提取内容❌
+                // 兼容iPad使用replace提取
+                name = name.replace(/.*【(.*?)】.*/, '$1');
                 name = name.replace(/上月/g, "");
             }
             
