@@ -72,11 +72,11 @@ $task.fetch(myRequest).then(response => {
         
         total += highFee;
         details.push(
-            name + ": " 
-            + formatNumber(balance / gb) + " / " 
-            + formatNumber(highFee / gb) + " GB " 
-            + (balance(balance === highFee ? " 💯" : balance === 0 ? " ⛔" : " (" + formatNumber((balance / highFee) * 100) + "%) 🟢")
-        );
+    name + ": " 
+    + formatNumber(balance / gb) + " / " 
+    + formatNumber(highFee / gb) + " GB " 
+    + (balance === highFee ? " 💯" : balance === 0 ? " ⛔" : " (" + formatNumber((balance / highFee) * 100) + "%) 🟢")
+);
     }
     
     total = total / gb;
