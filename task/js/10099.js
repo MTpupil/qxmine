@@ -5,7 +5,7 @@
 const $ = new Env("流量通知");
 const access = $.getdata("mtpupil_gdlltz_access");
 const updata = $.getdata("mtpupil_gdlltz_updata");
-const isMerge = //$.getdata("mtpupil_gdlltz_isMerge"); // 用于控制是否合并
+//const isMerge = $.getdata("mtpupil_gdlltz_isMerge"); // 用于控制是否合并
 
 const isMerge = true // 
 let gb = 1024 * 1024;
