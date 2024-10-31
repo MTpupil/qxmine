@@ -35,38 +35,54 @@ $task.fetch(myRequest).then(response => {
     let result = JSON.parse(response.body);
     let msg = result.message;
     if (msg == "操作成功") {
-        $.log("查询成功");
-        let used = result.data.intfResultBean.userExtResList.length > 0 ? result.data.intfResultBean.userExtResList[0].addupTotalValue / gb 
-    : 0;
-        let resList = result.data.intfResultBean.userResList;
-        for (let i = 0; i < resList.length; i++) {
-            let name = resList[i].itemName;
-            let highFee = parseFloat(resList[i].highFee);
-            let balance = parseFloat(resList[i].balance);
-            // 判断是否是上月结转
-            if (name.includes("上月")) {
-                // 使用零宽断言直接提取内容❌
-                // 兼容iPad使用replace提取
-                name = name.replace(/.*【(.*?)】.*/, '$1');
-                name = name.replace(/上月/g, "");
-            }
-            
-            if (name.includes("流量")) {
-                // 去除流量二字
-                name = name.replace(/流量/g, "");
-            }
+    $.log("查询成功");
+    let used = result.data.intfResultBean.userExtResList.length > 0 ? result.data.intfResultBean.userExtResList[0].addupTotalValue / gb : 0;
+    let resList = result.data.intfResultBean.userResList;
+    
+    let nameMap = {}; // 存放合并的结果
 
-            total += highFee;
-            details.push(
-    name + ": " 
-    + formatNumber(balance / gb) + " / " 
-    + formatNumber(highFee / gb) + " GB " 
-    + (balance === highFee ? " 💯" : balance === 0 ? " ⛔" : "(" + formatNumber((balance / highFee) * 100) + "%)")
-);
+    for (let i = 0; i < resList.length; i++) {
+        let name = resList[i].itemName;
+        let highFee = parseFloat(resList[i].highFee);
+        let balance = parseFloat(resList[i].balance);
+
+        // 判断是否是上月结转
+        if (name.includes("上月")) {
+            name = name.replace(/.*【(.*?)】.*/, '$1').replace(/上月/g, "");
         }
-        total = total / gb;
-        let pct = (used / total) * 100;
-        let detailsString = details.join("\n");
+        
+        if (name.includes("流量")) {
+            name = name.replace(/流量/g, "");
+        }
+
+        // 合并相同name的数据
+        if (!nameMap[name]) {
+            nameMap[name] = { balance: 0, highFee: 0 };
+        }
+        nameMap[name].balance += balance;
+        nameMap[name].highFee += highFee;
+    }
+
+    // 根据合并后的数据生成 details
+    let total = 0;
+    let details = [];
+    for (let name in nameMap) {
+        let balance = nameMap[name].balance;
+        let highFee = nameMap[name].highFee;
+        
+        total += highFee;
+        details.push(
+            name + ": " 
+            + formatNumber(balance / gb) + " / " 
+            + formatNumber(highFee / gb) + " GB " 
+            + (balance === highFee ? " 💯" : balance === 0 ? " ⛔" : "(" + formatNumber((balance / highFee) * 100) + "%)")
+        );
+    }
+    
+    total = total / gb;
+    let pct = (used / total) * 100;
+    let detailsString = details.join("\n");
+}
         //可视化进度
 var usagePic = "";
 
