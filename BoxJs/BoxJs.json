@@ -10,7 +10,7 @@
       "name": "广电流量通知",
       "keys": [
         "mtpupil_gdlltz_access",
-        "mtpupil_gdlltz_updata"
+        "mtpupil_gdlltz_updata",
         "mtpupil_gdlltz_isMerge"
       ],
       "settings": [
