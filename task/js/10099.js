@@ -103,7 +103,7 @@ $.msg(
 );
         $done();
     } else {
-        $.msg("查询失败", "", "建议检查登录状态");
+        $.msg("查询失败", "",msg);
     }
 
     //$notify("Title", "Subtitle", response.body); // Success!
