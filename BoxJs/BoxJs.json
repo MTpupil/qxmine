@@ -10,7 +10,8 @@
       "name": "广电流量通知",
       "keys": [
         "mtpupil_gdlltz_access",
-        "mtpupil_gdlltz_updata"
+        "mtpupil_gdlltz_updata",
+        "mtpupil_gdlltz_isMerge"
       ],
       "settings": [
         {
@@ -32,6 +33,13 @@
           "autoGrow": true,
           "rows": 5,
           "desc": "请输入data"
+        },
+        {
+          "id": "mtpupil_gdlltz_isMerge",
+          "name": "合并模式",
+          "val": false,
+          "type": "boolean",
+          "desc": "开启后，流量详情里相同名称的流量将合并为一条。"
         }
       ],
       "author": "@木瞳",
