@@ -35,7 +35,7 @@
           "desc": "请输入data"
         },
         {
-          "id": "mtpupil_gdlltz_isMerge"
+          "id": "mtpupil_gdlltz_isMerge",
           "name": "合并模式",
           "val": false,
           "type": "boolean",
