@@ -114,7 +114,7 @@ for (let i = 0; i < Math.floor(pct / 10); i++) {
 
 // 结束并发送消息
 $.msg(
-    "流量通知 " + time, 
+    "流量通知  🕐" + time, 
     "已使用：" + formatNumber(used) + " GB（" + formatNumber(pct) + "%）", 
     "总量：" + formatNumber(total) + " GB\n剩余：" + formatNumber(total - used) + " GB\n" + usagePic + " (" + formatNumber(100 - pct) + "%)" + "\n\n" + detailsString
 );
