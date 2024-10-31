@@ -5,18 +5,22 @@
 const $ = new Env("流量通知");
 const access = $.getdata("mtpupil_gdlltz_access");
 const updata = $.getdata("mtpupil_gdlltz_updata");
-let total = 0;
-let details = [];
-let gb = 1024*1024;
+const isMerge = //$.getdata("mtpupil_gdlltz_isMerge"); // 用于控制是否合并
+
+const isMerge = true // 
+let gb = 1024 * 1024;
 let time = getFormattedDate();
 
 function formatNumber(num) {
-    let fixedNum = num.toFixed(2);
-    return Number(fixedNum);
+    return Number(num.toFixed(2));
+}
+
+function formatDetail(name, balance, highFee) {
+    const percent = balance === highFee ? " 💯" : balance === 0 ? " ⛔" : ` (${formatNumber((balance / highFee) * 100)}%) 🟢`;
+    return `${name}: ${formatNumber(balance / gb)} / ${formatNumber(highFee / gb)} GB ${percent}`;
 }
 
 const url = "https://app.10099.com.cn/contact-web/api/busi/qryUserRes";
-const method = "POST";
 const headers = {
     "Access": access,
     "Content-Type": "application/json",
@@ -24,109 +28,73 @@ const headers = {
 };
 const data = { "data": updata };
 
-const myRequest = {
-    url: url,
-    method: method, // Optional, default GET.
-    headers: headers, // Optional.
-    body: JSON.stringify(data) // Optional.
-};
+const myRequest = { url, method: "POST", headers, body: JSON.stringify(data) };
 
 $task.fetch(myRequest).then(response => {
-    // response.statusCode, response.headers, response.body
-    let result = JSON.parse(response.body);
-    let msg = result.message;
-    if (msg == "操作成功") {
+    const result = JSON.parse(response.body);
+    if (result.message !== "操作成功") {
+        $.msg("查询失败", "", result.message);
+        return $done();
+    }
+
     $.log("查询成功");
-    let used = result.data.intfResultBean.userExtResList.length > 0 ? result.data.intfResultBean.userExtResList[0].addupTotalValue / gb : 0;
-    let resList = result.data.intfResultBean.userResList;
-    
-    let nameMap = {}; // 存放合并的结果
-
-    for (let i = 0; i < resList.length; i++) {
-        let name = resList[i].itemName;
-        let highFee = parseFloat(resList[i].highFee);
-        let balance = parseFloat(resList[i].balance);
-
-        // 判断是否是上月结转
-        if (name.includes("上月")) {
-            name = name.replace(/.*【(.*?)】.*/, '$1').replace(/上月/g, "");
-        }
-        
-        if (name.includes("流量")) {
-            name = name.replace(/流量/g, "");
-        }
-
-        // 合并相同name的数据
-        if (!nameMap[name]) {
-            nameMap[name] = { balance: 0, highFee: 0 };
-        }
-        nameMap[name].balance += balance;
-        nameMap[name].highFee += highFee;
-    }
-
-    // 根据合并后的数据生成 details
-    let total = 0;
+    const used = result.data.intfResultBean.userExtResList.length > 0 ? result.data.intfResultBean.userExtResList[0].addupTotalValue / gb : 0;
+    const resList = result.data.intfResultBean.userResList;
+    const nameMap = {}; // 用于存放合并结果
     let details = [];
-    for (let name in nameMap) {
-        let balance = nameMap[name].balance;
-        let highFee = nameMap[name].highFee;
-        
-        total += highFee;
-        details.push(
-    name + ": " 
-    + formatNumber(balance / gb) + " / " 
-    + formatNumber(highFee / gb) + " GB " 
-    + (balance === highFee ? " 💯" : balance === 0 ? " ⛔" : " (" + formatNumber((balance / highFee) * 100) + "%) 🟢")
-);
-    }
-    
-    total = total / gb;
-    let pct = (used / total) * 100;
-    let detailsString = details.join("\n");
-        //可视化进度
-var usagePic = "";
+    let total = 0;
 
-// 添加剩余的满月部分
-for (let i = 0; i < 9 - Math.floor(pct / 10); i++) {
-    usagePic += "🌕";
-}
+    if (isMerge) {
+        // 合并相同 name 的数据
+        resList.forEach(item => {
+            let name = item.itemName.replace(/.*【(.*?)】.*/, '$1').replace(/上月/g, "").replace(/流量/g, "");
+            const highFee = parseFloat(item.highFee);
+            const balance = parseFloat(item.balance);
 
-// 计算小数部分
-var xiaoshu = pct - Math.floor(pct / 10) * 10;
+            if (!nameMap[name]) {
+                nameMap[name] = { balance: 0, highFee: 0 };
+            }
+            nameMap[name].balance += balance;
+            nameMap[name].highFee += highFee;
+        });
 
-// 根据小数部分选择适当的月相符号
-if (xiaoshu >= 8.75) {
-    usagePic += "🌑";
-} else if (xiaoshu >= 6.25) {
-    usagePic += "🌘";
-} else if (xiaoshu >= 3.75) {
-    usagePic += "🌗";
-} else if (xiaoshu >= 1.25) {
-    usagePic += "🌖";
-} else {
-    usagePic += "🌕";
-}
-
-// 添加已使用的新月符号
-for (let i = 0; i < Math.floor(pct / 10); i++) {
-    usagePic += "🌑";
-}
-
-// 结束并发送消息
-$.msg(
-    "流量通知  🕐" + time, 
-    "已使用：" + formatNumber(used) + " GB（" + formatNumber(pct) + "%）", 
-    "总量：" + formatNumber(total) + " GB\n剩余：" + formatNumber(total - used) + " GB\n" + usagePic + " (" + formatNumber(100 - pct) + "%)" + "\n\n" + detailsString
-);
-        $done();
+        for (const name in nameMap) {
+            const { balance, highFee } = nameMap[name];
+            total += highFee;
+            details.push(formatDetail(name, balance, highFee));
+        }
     } else {
-        $.msg("查询失败", "",msg);
+        // 不合并，直接逐条处理
+        resList.forEach(item => {
+            let name = item.itemName.replace(/.*【(.*?)】.*/, '$1').replace(/上月/g, "").replace(/流量/g, "");
+            const highFee = parseFloat(item.highFee);
+            const balance = parseFloat(item.balance);
+
+            total += highFee;
+            details.push(formatDetail(name, balance, highFee));
+        });
     }
 
-    //$notify("Title", "Subtitle", response.body); // Success!
+    total = total / gb;
+    const pct = (used / total) * 100;
+    const detailsString = details.join("\n");
+
+    // 可视化进度条
+    let usagePic = "";
+    const xiaoshu = pct % 10;
+
+    usagePic += "🌕".repeat(9 - Math.floor(pct / 10));
+    usagePic += xiaoshu >= 8.75 ? "🌑" : xiaoshu >= 6.25 ? "🌘" : xiaoshu >= 3.75 ? "🌗" : xiaoshu >= 1.25 ? "🌖" : "🌕";
+    usagePic += "🌑".repeat(Math.floor(pct / 10));
+
+    $.msg(
+        "流量通知  🕐" + time,
+        "已使用：" + formatNumber(used) + " GB（" + formatNumber(pct) + "%）",
+        "总量：" + formatNumber(total) + " GB\n剩余：" + formatNumber(total - used) + " GB\n" + usagePic + " (" + formatNumber(100 - pct) + "%)" + "\n\n" + detailsString
+    );
+    
     $done();
 }, reason => {
-    // reason.error
     $.msg("流量通知", "", "运行异常，请检查"); // Error!
     $done();
 });
