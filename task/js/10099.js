@@ -36,7 +36,8 @@ $task.fetch(myRequest).then(response => {
     let msg = result.message;
     if (msg == "操作成功") {
         $.log("查询成功");
-        let used = result.data.intfResultBean.userExtResList[0].addupTotalValue / gb;
+        let used = result.data.intfResultBean.userExtResList.length > 0 ? result.data.intfResultBean.userExtResList[0].addupTotalValue / gb 
+    : 0;
         let resList = result.data.intfResultBean.userResList;
         for (let i = 0; i < resList.length; i++) {
             let name = resList[i].itemName;
