@@ -82,7 +82,6 @@ $task.fetch(myRequest).then(response => {
     total = total / gb;
     let pct = (used / total) * 100;
     let detailsString = details.join("\n");
-}
         //可视化进度
 var usagePic = "";
 
