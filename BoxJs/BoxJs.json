@@ -11,7 +11,9 @@
       "keys": [
         "mtpupil_gdlltz_access",
         "mtpupil_gdlltz_updata",
-        "mtpupil_gdlltz_isMerge"
+        "mtpupil_gdlltz_isMerge",
+        "mtpupil_gdlltz_isTimeEnabled",
+        "mtpupil_gdlltz_isForecastEnabled"
       ],
       "settings": [
         {
@@ -40,6 +42,20 @@
           "val": false,
           "type": "boolean",
           "desc": "开启后，流量详情里相同名称的流量将合并为一条。"
+        },
+        {
+          "id": "mtpupil_gdlltz_isTimeEnabled",
+          "name": "显示时间",
+          "val": false,
+          "type": "boolean",
+          "desc": "开启后，通知的大标题将附带当前时间。"
+        },
+        {
+          "id": "mtpupil_gdlltz_isForecastEnabled",
+          "name": "平均统计功能",
+          "val": false,
+          "type": "boolean",
+          "desc": "开启后，通知里将显示流量每日平均已用和预计数据。"
         }
       ],
       "author": "@木瞳",
@@ -48,7 +64,7 @@
       "icons": [
         "https://s1.ax1x.com/2022/11/23/z8LIPO.jpg",
         "https://s1.ax1x.com/2022/11/23/z8LIPO.jpg"
-        ]
+      ]
     }
   ]
 }
