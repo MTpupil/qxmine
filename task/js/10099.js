@@ -5,7 +5,9 @@
 const $ = new Env("流量通知");
 const access = $.getdata("mtpupil_gdlltz_access");
 const updata = $.getdata("mtpupil_gdlltz_updata");
-const isMerge = JSON.parse($.getdata("mtpupil_gdlltz_isMerge")); // 用于控制是否合并
+const isMerge = JSON.parse($.getdata("mtpupil_gdlltz_isMerge")); // 是否合并
+const isTimeEnabled = JSON.parse($.getdata("mtpupil_gdlltz_isTimeEnabled")); // 是否显示时间
+const isForecastEnabled = JSON.parse($.getdata("mtpupil_gdlltz_isForecastEnabled")); // 是否开启预计功能
 
 let gb = 1024 * 1024;
 let time = getFormattedDate();
@@ -17,6 +19,21 @@ function formatNumber(num) {
 function formatDetail(name, balance, highFee) {
     const percent = balance === highFee ? " 💯" : balance === 0 ? " ⛔" : ` (${formatNumber((balance / highFee) * 100)}%) 🟢`;
     return `${name}: ${formatNumber(balance / gb)} / ${formatNumber(highFee / gb)} GB ${percent}`;
+}
+
+function calculateForecast(used, total) {
+    const currentDate = new Date();
+    const currentDay = currentDate.getDate();
+    const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+    const remainingDays = daysInMonth - currentDay;
+
+    const avgDailyUsage = formatNumber(used / currentDay);
+    const avgDailyUsagePercent = formatNumber((used / total) * (1 / currentDay) * 100);
+
+    const avgDailyRemaining = remainingDays > 0 ? formatNumber((total - used) / remainingDays) : 0;
+    const avgDailyRemainingPercent = remainingDays > 0 ? formatNumber(((total - used) / total) * (1 / remainingDays) * 100) : 0;
+
+    return `本月每日平均已用：${avgDailyUsage} GB（${avgDailyUsagePercent}%）\n本月剩余天数每日可用：${avgDailyRemaining} GB（${avgDailyRemainingPercent}%）`;
 }
 
 const url = "https://app.10099.com.cn/contact-web/api/busi/qryUserRes";
@@ -86,10 +103,14 @@ $task.fetch(myRequest).then(response => {
     usagePic += xiaoshu >= 8.75 ? "🌑" : xiaoshu >= 6.25 ? "🌘" : xiaoshu >= 3.75 ? "🌗" : xiaoshu >= 1.25 ? "🌖" : "🌕";
     usagePic += "🌑".repeat(Math.floor(pct / 10));
 
+    // 显示已用、剩余、预计详情
+    const forecastString = isForecastEnabled ? "\n\n" + calculateForecast(used, total) : "";
+    const title = isTimeEnabled ? `流量通知 🕐${time}` : "流量通知";
+
     $.msg(
-        "流量通知  🕐" + time,
+        title,
         "已使用：" + formatNumber(used) + " GB（" + formatNumber(pct) + "%）",
-        "总量：" + formatNumber(total) + " GB\n剩余：" + formatNumber(total - used) + " GB\n" + usagePic + " (" + formatNumber(100 - pct) + "%)" + "\n\n" + detailsString
+        "总量：" + formatNumber(total) + " GB\n剩余：" + formatNumber(total - used) + " GB\n" + usagePic + " (" + formatNumber(100 - pct) + "%)" + "\n\n" + detailsString + forecastString
     );
     
     $done();
