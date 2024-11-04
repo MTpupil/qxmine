@@ -33,7 +33,7 @@ function calculateForecast(used, total) {
     const avgDailyRemaining = remainingDays > 0 ? formatNumber((total - used) / remainingDays) : 0;
     const avgDailyRemainingPercent = remainingDays > 0 ? formatNumber(((total - used) / total) * (1 / remainingDays) * 100) : 0;
 
-    return `本月每日平均已用：${avgDailyUsage} GB（${avgDailyUsagePercent}%）\n本月剩余天数每日可用：${avgDailyRemaining} GB（${avgDailyRemainingPercent}%）`;
+    return `每日平均已用：${avgDailyUsage} GB（${avgDailyUsagePercent}%）\n每日平均剩余：${avgDailyRemaining} GB（${avgDailyRemainingPercent}%）`;
 }
 
 const url = "https://app.10099.com.cn/contact-web/api/busi/qryUserRes";
