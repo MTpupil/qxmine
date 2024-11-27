@@ -11,7 +11,7 @@
 
 const SCRIPT_NAME='堆糖';
 
-const duitang=/https?:\/\/(www|api)\.duitang\.com\/napi\/people\/me.*/;
+const duitang=/https?:\/\/(www|api(-2))\.duitang\.com\/napi\/people\/me.*/;
 const naiyou=/^https?:\/\/nz-api\.duitang\.com\/account\/me.*/;
 
 if(duitang.test($request.url)){
